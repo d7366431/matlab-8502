@@ -2,7 +2,7 @@ clear all
 clc
 
 %% INPUT
-n=1000;                                 %number of elements for section #3 - length 1350m
+n=900;                                 %number of elements for section #3 - length 1350m
 
 M=33299;                                %mass of drillstring
 m=M/n;                                  %mass of each block
