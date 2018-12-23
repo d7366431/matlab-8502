@@ -3,12 +3,12 @@ clc
 clear all
 
 lags = 1; 
-tspan = 1:1:100
+tspan = 1:1:500
 
 %%sol   = dde23(    ddefile,    lags,       history,            tspan);
   sol   = dde23(    @dde,       lags,       @history,           tspan)
 
-xais    = linspace(1,100,1000)
+xais    = linspace(1,500,1000)
 yaxis   = deval(sol,xais)
 
 plot(xais,yaxis)
