@@ -27,7 +27,7 @@ n=30; %number of elements for simplicity put 3 for now
 v0=zeros(n,1);
 v0(1)=1;
 % c matrix
-c=1;
+c=2;
 C=zeros(n);
 C(end,end)=c;
 % D Matrix
