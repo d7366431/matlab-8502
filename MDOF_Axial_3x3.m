@@ -1,4 +1,4 @@
-n=3;                                    %number of elements for section #3 - length 1350m     
+n=2;                                    %number of elements for section #3 - length 1350m     
 IC = zeros(2*n,1)
 tspan = 0:0.001:1;
 [t,x] = ode45(@fr,tspan,IC);
@@ -17,7 +17,7 @@ e=z*a*se;                               %Cutting Energy
 %% INPUT for DRILLSTRING
 v0=1;                                   %constant speed of drilling
 c=0.2;                                  %damping coefficient
-n=3;                                    %number of elements for section #3 - length 1350m       
+n=2;                                    %number of elements for section #3 - length 1350m       
 m=1;                                    %mass of each block
 M=m*eye(n)                              %Matrix of drillstring mass
 k=1;
@@ -60,8 +60,8 @@ MEsm=inv(M)*E
         x1dot   = zeros(n,1);
         x2dot   = zeros(n,1);
         xdot    = zeros(2*n,1);
-        x1 = x(1:n);
-        x2 = x(n+1:end);
+        x1 = x(1:n)
+        x2 = x(n+1:end,1)
         x1dot = x2;
         x2dot = MVF1-D*x1-c*x2-MEsm*x1;
         xdot = [x1dot; x2dot];
