@@ -4,7 +4,6 @@ tspan = 1:1:15;
 n=30;
 %%sol   = dde23(    ddefile,    lags,        history,           tspan);
   sol   = dde23(       @dde,    [1],        @history,           tspan);
-
   
 ax1 = subplot(2,1,1);
 plot(sol.x,sol.y);
@@ -17,7 +16,7 @@ ax2 = subplot(2,1,2);
 grid on;
 title('deval')
     xplot = 1:1:10;
-    yplot = deval(sol,xplot,2*n);
+    yplot = deval(sol,xplot,size(n));
     plot(xplot,yplot);
     xlabel('time t');
     ylabel('x(t)');
