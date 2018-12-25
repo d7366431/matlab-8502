@@ -31,7 +31,7 @@ c=1;
 C=zeros(n);
 C(end,end)=c;
 % D Matrix
-d=1;
+d=2;
 D=d*eye(n);
 % M Matrix
 m=1;                                   
