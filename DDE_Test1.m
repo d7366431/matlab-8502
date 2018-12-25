@@ -35,8 +35,7 @@ mvzeros=zeros(n,n);
 mvzeros(1,1)=mv(1,1);
 F1=zeros(n,1); 
 F1(1)=v0*t
-MVF1=mvzeros*F1
-                           
+MVF1=mvzeros*F1      
 %% Dx
 DX=zeros(2*n,2*n);
 D=D*eye(n)
@@ -49,11 +48,10 @@ E=zeros(n,n);
 E(end,end)=e;                           %last element of vector E is cutting constant e                                       
 MEsm=inv(M)*E
 MEsm=eye(n)*MEsm
-
 %% The differential equations:
 %[x]=[x1;x2]=[x;xdot]
 %[xdot]=[x2;big equation]
-        xlag=Z(:,1)
+        xlag    = Z(1:n)
         x1      = zeros(n,1);
         x2      = zeros(n,1);
         x1dot   = zeros(n,1);
