@@ -4,7 +4,7 @@ clear all
 n=3;
 
 IC = zeros(2*n,1);
-tspan = 1:.001:30;
+tspan = 1:1:30;
 [t,x] = ode45(@ff,tspan,IC);            %Call ODE 45 Function
 
 plot(t,x(:,end)); 
@@ -12,7 +12,7 @@ xlabel('t'); ylabel('x');
 
 %% Create function that returns sdot input is time (t) and state state (x)
 
-function qdot=ff(t,x,e)                   % x - state of system (position of each block)
+function qdot=ff(t,x)                   % x - state of system (position of each block)
 %% INPUT for BIT
 z=5;                                    %number of blades
 a=0.4445/2;                             %radius of section#3 in [m]
