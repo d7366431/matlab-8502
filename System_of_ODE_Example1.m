@@ -2,6 +2,7 @@ t = 0:0.1:10;
 n=3
 y_init = [ones(n,1); zeros(n,1)]
 [t,y] = ode45(@rhs,t,y_init);
+plot(t,y(:,end)); 
 
 function dydt = rhs(t,y)
 n=3
