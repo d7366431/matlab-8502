@@ -5,10 +5,23 @@ n=3;
 
 IC = zeros(2*n,1);
 tspan = 1:1:30;
-[t,x] = ode45(@ff,tspan,IC);            %Call ODE 45 Function
-
-plot(t,x(:,end)); 
-xlabel('t'); ylabel('x'); 
+ sol   = dde23(       @ff,    [1],        @history,           tspan);
+  
+ax1 = subplot(2,1,1);
+plot(sol.x,sol.y);
+grid on;
+title('sol.x, sol.y')
+    xlabel('time t');
+    ylabel('x(t)');
+ 
+ax2 = subplot(2,1,2);
+grid on;
+title('deval')
+    xplot = 1:1:4;
+    yplot = deval(sol,xplot,2*n);
+    plot(xplot,yplot);
+    xlabel('time t');
+    ylabel('x(t)');
 
 %% Create function that returns sdot input is time (t) and state state (x)
 
@@ -56,10 +69,17 @@ ME(n+1:end, 1:n)=MEsm
 %% The differential equations:
 %[x]    =   [x1;x2]=[x;xdot]
 %[xdot] =   [x2;big equation]
-
-xdot = MVF1 - Dn*x - C*x + ME*x;
+xlag    = Z(1:2*n,1);
+xdot = MVF1 - Dn*x - C*x + ME*xlag;
 q = zeros(2*n,2*n);
 q(n+1:end,n+1:end)=inv(V);
 qdot=q*xdot;
 
+end
+function s = history(t)
+n=3;
+    s=zeros(2*n,1);
+    for i=1:2*n
+        s(i,1)=1;
+    end
 end
