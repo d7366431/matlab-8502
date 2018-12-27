@@ -1,9 +1,9 @@
 clc
 clear all
-tspan = 1:1:15;
-n=30;
+tspan = 1:0.01:15;
+n=100;
 %%sol   = dde23(    ddefile,    lags,        history,           tspan);
-  sol   = dde23(       @dde,    [1],        @history,           tspan);
+  sol   = dde23(       @dde,    [0.01],        @history,           tspan);
   
 ax1 = subplot(2,1,1);
 plot(sol.x,sol.y);
@@ -22,18 +22,18 @@ title('deval')
     ylabel('x(t)');
 
 function xdot=dde(t,x,Z)                % x - state of system (position of each block)
-n=30; %number of elements for simplicity put 3 for now       
+n=100; %number of elements for simplicity put 3 for now       
 v0=zeros(n,1);
-v0(1)=1;
+v0(1)=25;
 % c matrix
-c=2;
+c=4;
 C=zeros(n);
 C(end,end)=c;
 % D Matrix
-d=1;
+d=5;
 D=d*eye(n);
 % M Matrix
-m=1;                                   
+m=23;                                   
 M=m*eye(n);
 %% The differential equations:
         xlag    = Z(1:n,1);
@@ -50,9 +50,9 @@ M=m*eye(n);
 end
 
 function s = history(t)
-n=30;
+n=100;
     s=zeros(2*n,1);
     for i=1:2*n
-        s(i,1)=1;
+        s(i,1)=0;
     end
 end
