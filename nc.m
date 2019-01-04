@@ -1,6 +1,6 @@
 classdef nc
    properties (Constant) 
-        n=30;                                        % number of elements for section #3 - length 1350m
+        n=3;                                        % number of elements for section #3 - length 1350m
         E = 200e9;                                  % Young's modulus steel
         H=1350;
         h = nc.H/nc.n;                              % length of each segment
@@ -23,3 +23,4 @@ classdef nc
         C=nc.c*eye(nc.n);
    end
 end
+
