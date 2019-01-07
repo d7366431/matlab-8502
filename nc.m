@@ -1,10 +1,10 @@
 classdef nc
    properties (Constant) 
-        n=3;                                        % number of elements for section #3 - length 1350m
+        n=40;                                        % number of elements for section #3 - length 1350m
         E = 200e9;                                  % Young's modulus steel
         H=1350;
         h = nc.H/nc.n;                              % length of each segment
-        v0=100;                                     % constant speed of drilling
+        v0=0.027;                                   % constant speed of drilling [m/sec] 0.027=100m/h
         B=0.825;                                    % bouyancy factor
         %% INPUT for BIT         
         zb=5;                                       % Number of blades
@@ -15,7 +15,7 @@ classdef nc
         %% INPUT for DRILLSTRING    
         m=71000/nc.n;                               % mass of each block        M*/n
         k = nc.n*524287;                            % spring constant           n*K
-        c=538/nc.n;                                 % damping of each block     C/n
+        c=53.8/nc.n;                                 % damping of each block     C/n
         %% Matrix
         %M-Mass matrix
         M=nc.m*eye(nc.n);                           % Matrix of drillstring mass
